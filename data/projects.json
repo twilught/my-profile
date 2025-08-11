@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Portfolio Website",
+    "date": "2025-08-01",
+    "description": "Next.js + Tailwind โปรไฟล์ส่วนตัว โทนขาว/ดำ",
+    "link": "https://example.com"
+  },
+  {
+    "title": "API Dashboard",
+    "date": "2025-07-15",
+    "description": "แดชบอร์ด REST API โทนมินิมอล",
+    "link": "https://example.com"
+  }
+]

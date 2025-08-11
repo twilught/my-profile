@@ -1,26 +1,17 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+:root { color-scheme: light dark; }
+html { scroll-behavior: smooth; }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* ใช้ฟอนต์จากตัวแปร (คงที่ทั้ง SSR/CSR) */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  @apply bg-white text-neutral-900 dark:bg-black dark:text-white;
 }
+
+/* atoms */
+.card { @apply rounded-3xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/5 backdrop-blur px-5 py-5 shadow; }
+.btn { @apply inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm transition; }
+.btn-primary { @apply bg-black text-white border-black hover:translate-y-[-1px] active:translate-y-0 dark:bg-white dark:text-black dark:border-white; }
+.btn-ghost { @apply border-black/20 hover:bg-black/5 dark:border-white/20 dark:hover:bg-white/10; }
+.tag { @apply inline-block rounded-full border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/10 px-3 py-1 text-xs; }
