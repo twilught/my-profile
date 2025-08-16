@@ -1,7 +1,14 @@
+// app/blog/[slug]/page.tsx
 import { getPost } from "@/lib/posts";
 
-export default async function BlogPost({ params }: { params: { slug: string } }) {
-  const post = await getPost(params.slug);
+// ใน Next 15 บางโปรเจกต์ params ถูกพิมพ์เป็น Promise
+export default async function BlogPost({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;           // ⬅️ แก้ตรงนี้
+  const post = await getPost(slug);
 
   return (
     <main className="container max-w-3xl py-16">
