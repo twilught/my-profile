@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 :root { color-scheme: light dark; }
 html { scroll-behavior: smooth; }
 
@@ -15,3 +16,127 @@ body {
 .btn-primary { @apply bg-black text-white border-black hover:translate-y-[-1px] active:translate-y-0 dark:bg-white dark:text-black dark:border-white; }
 .btn-ghost { @apply border-black/20 hover:bg-black/5 dark:border-white/20 dark:hover:bg-white/10; }
 .tag { @apply inline-block rounded-full border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/10 px-3 py-1 text-xs; }
+/* ปุ่มเงา-ส่องแบบเรียบหรู */
+.shine-btn {
+  position: relative;
+  overflow: hidden;
+}
+.shine-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,0.6) 12%, transparent 24%);
+  transform: translateX(-120%);
+  transition: transform .8s cubic-bezier(.2,.7,.2,1);
+}
+.shine-btn:hover::after {
+  transform: translateX(120%);
+}
+
+/* ปุ่ม ghost ที่เข้ากับธีม */
+.btn-ghost {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: .5rem .75rem; border-radius: .75rem;
+  border: 1px solid color-mix(in oklab, currentColor 15%, transparent);
+  background: color-mix(in oklab, currentColor 0%, transparent);
+  transition: transform .15s ease, background .25s ease, border-color .25s ease;
+}
+.btn-ghost:hover {
+  transform: translateY(-1px);
+  background: color-mix(in oklab, currentColor 6%, transparent);
+}
+/* animated gradient bar */
+.animated-gradient {
+
+  background-size: 200% 100%;
+  animation: slideGradient 3.2s linear infinite;
+  filter: drop-shadow(0 0 6px rgba(167,139,250,.45));
+}
+@keyframes slideGradient {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+/* ปุ่มหลัก (shine effect) */
+.shine-btn {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.shine-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0) 80%
+  );
+  transform: skewX(-25deg);
+}
+.shine-btn:hover::before {
+  left: 125%;
+  transition: left 0.75s ease;
+}
+.shine-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* ปุ่ม Ghost */
+.btn-ghost {
+  @apply inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-medium 
+         border border-black/10 dark:border-white/20 transition;
+}
+.btn-ghost:hover {
+  @apply bg-black text-white dark:bg-white dark:text-black;
+}
+/* Card glassy utility */
+.glass { @apply rounded-2xl border border-black/10 dark:border-white/15 bg-white/60 dark:bg-white/10 backdrop-blur; }
+
+/* Tag pill (รีใช้ในหลายที่) */
+.tag { @apply inline-flex items-center gap-1 rounded-full px-3 py-1 text-sm border border-black/10 dark:border-white/15 bg-white/50 dark:bg-white/10 backdrop-blur; }
+
+/* คีย์เฟรมที่ใช้ใน header line (เผื่อจะเพิ่มทีหลัง) */
+@keyframes slide { from { transform: translateX(-100%);} to { transform: translateX(100%);} }
+.glass { @apply rounded-2xl border border-black/10 dark:border-white/15 bg-white/60 dark:bg-white/10 backdrop-blur; }
+.tag   { @apply inline-flex items-center gap-1 rounded-full px-3 py-1 text-sm border border-black/10 dark:border-white/15 bg-white/50 dark:bg-white/10 backdrop-blur; }
+/* ปุ่ม */
+.shine-btn {
+  @apply inline-flex items-center justify-center rounded-2xl px-5 py-2.5 font-medium
+  bg-black text-white dark:bg-white dark:text-black
+  border border-black/10 dark:border-white/10 relative overflow-hidden;
+}
+.shine-btn::after{
+  content:""; position:absolute; inset:0;
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.25) 30%, transparent 60%);
+  transform: translateX(-120%); transition: transform .8s ease;
+}
+.shine-btn:hover::after{ transform: translateX(120%); }
+
+.btn-ghost{
+  @apply inline-flex items-center justify-center rounded-2xl px-5 py-2.5
+  border border-black/15 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/10 transition;
+}
+
+/* บัตรแก้ว */
+.glass{
+  @apply rounded-2xl border border-black/10 dark:border-white/10
+  bg-white/60 dark:bg-white/10 backdrop-blur;
+}
+
+/* divider แบบ Apple-ish */
+.gradient-divider{
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,.12), transparent);
+}
+.dark .gradient-divider{
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.15), transparent);
+}
+
+/* mask ฟุ้ง ๆ ด้านบน/ล่าง sticky */
+.gradient-mask{
+  mask-image: linear-gradient(180deg, transparent 0%, black 10%, black 90%, transparent 100%);
+}

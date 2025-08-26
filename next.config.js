@@ -1,6 +1,20 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+const nextConfig = {
   images: {
-    remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com" }],
+    remotePatterns: [
+      { protocol: "https", hostname: "images.unsplash.com" },
+      { protocol: "https", hostname: "images.unsplash.com" } // เพิ่มโดเมนรูปอื่น ๆ ได้
+    ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/p/:slug",
+        destination: "/projects/:slug",
+        permanent: true
+      }
+    ];
+  }
 };
+
+export default nextConfig;
