@@ -1,4 +1,6 @@
-[
+[{
+  "type": "module"
+},
   {
   "slug": "xtf-viewer-ply-converter",
   "title": "🛰️ XTF Viewer & PLY Converter",
