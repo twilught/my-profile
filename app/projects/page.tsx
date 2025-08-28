@@ -21,17 +21,12 @@ type Project = {
   cover?: string;
 };
 
-export default async function ProjectsPage({
-  searchParams,
-}: {
-  // รองรับทั้ง object และ promise (แบบที่ Vercel คาด)
-  searchParams?: { q?: string; tag?: string } | Promise<{ q?: string; tag?: string }>;
-}) {
-  // ปรับให้เป็น object เสมอ
+export default async function ProjectsPage(props: { searchParams?: any }) {
+  // รองรับทั้งกรณีเป็น object ตรง ๆ หรือเป็น Promise (บาง env ของ Next 15)
   const sp =
-    searchParams && typeof (searchParams as any).then === "function"
-      ? await (searchParams as Promise<{ q?: string; tag?: string }>)
-      : ((searchParams as { q?: string; tag?: string }) ?? {});
+    props.searchParams && typeof props.searchParams.then === "function"
+      ? await props.searchParams
+      : (props.searchParams ?? {});
 
   const q = (sp.q ?? "").toLowerCase();
   const activeTag = (sp.tag ?? "").toLowerCase();
