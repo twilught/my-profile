@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import projects from "@/data/projects.json";
+import projects from "@/data/next.config.mjs";
 
 type Item = { label: string; href: string; keywords?: string[] };
 
