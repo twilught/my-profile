@@ -19,7 +19,9 @@
     "tags": ["conference", "CISIS-2025", "sonar", "image-processing", "research"],
     "demo": "",
     "github": "",
-    "cover": "/images/projects/S__8806416.png"
+    "cover": "/images/projects/S__8806416.png",
+    "featured": true
+
   },
   {
     "slug": "rsu-macbookairm4-support",
@@ -31,6 +33,8 @@
     "demo": "",
     "github": "",
     "cover": "/images/projects/509441600_1160547659448610_118934463934567645_n.jpg"
+    ,
+    "featured": true
   },
   {
     "slug": "auv-research-deepinfar",
@@ -43,6 +47,8 @@
     "github": "",
     "cover": "/images/projects/auv-research-deepinfar/489282421_122221353158079211_4191781332848087225_n.jpg",
     "imagesDir": "/images/projects/auv-research-deepinfar"
+    ,
+    "featured": true
   },
   {
     "slug": "gsb-smart-start-idea-2024",
