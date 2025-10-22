@@ -92,12 +92,7 @@ export default function Home() {
 
         {/* ข้อความ: จัดกลางบนมือถือ, ซ้ายเมื่อจอ ≥ md */}
         <div className="order-2 md:order-1 text-center md:text-left">
-          <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/15 px-3 py-1 text-xs tracking-wide text-black/70 dark:text-white/70 bg-white/50 dark:bg-white/10 backdrop-blur">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-              Minimal · UX-first · Quality
-            </span>
-          </Reveal>
+
 
           <Reveal delay={0.08}>
             <h1
@@ -146,8 +141,8 @@ export default function Home() {
           <div className="mt-7 grid grid-cols-3 gap-3 sm:gap-4">
             {[
               { k: "Projects", v: "15+" },
-              { k: "Awards", v: "4" },
-              { k: "Years", v: "2+" },
+              { k: "Awards", v: "3" },
+              { k: "Years", v: "1+" },
             ].map((s, i) => (
               <Reveal key={s.k} delay={0.22 + i * 0.06}>
                 <div className="rounded-2xl border border-black/10 dark:border-white/15 px-3 py-3 sm:px-4 sm:py-3 bg-white/55 dark:bg-white/10 backdrop-blur text-center">
@@ -195,7 +190,6 @@ export default function Home() {
         <ProfileSections />
       </Reveal>
 
-      <GradientDivider />
       <GradientDivider />
 
       {/* === FEATURED PROJECTS === */}

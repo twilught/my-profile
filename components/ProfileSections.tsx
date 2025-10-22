@@ -62,10 +62,8 @@ export default function ProfileSections() {
             ประสบการณ์ ระหว่างการศึกษา
           </h2>
           <ul className="mt-3 pt-3 border-t border-black/10 dark:border-white/15 space-y-2 text-sm sm:text-base list-disc pl-5">
-            <li>โชว์ผลงานที่งาน <b>THAILAND NEW GEN INVENTORS AWARD 2024</b></li>
-            <li>เข้าร่วมการแข่งขัน <b>STARTUP THAILAND LEAGUE 2024</b></li>
-            <li>เข้าร่วมการแข่งขัน <b>TED FUND THAILAND</b></li>
-            <li>ทำถ้วยรางวัลให้กับบริษัท <b>KUBOTA</b></li>
+            <p className="font-bold">ทำงานระหว่างเรียน ที่มูลนิธิ Earth Sea Foundation</p>
+            <p>ตำแหน่ง: นักวิจัยและนักสำรวจท้องทะเล</p>
           </ul>
         </motion.div>
 

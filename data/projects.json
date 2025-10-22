@@ -1,5 +1,29 @@
 [
   {
+  "slug": "haul-app",
+  "title": "🛍️ Haul App – ระบบจัดการรอบรับหิ้ว",
+  "summary": "เว็บแอปพลิเคชันสำหรับผู้รับหิ้วและผู้สั่งซื้อ พัฒนาโดยใช้ React + Express + Docker + MySQL",
+  "details": "Haul App เป็นระบบที่ออกแบบมาเพื่อให้ผู้รับหิ้ว (Runner) สามารถสร้างรอบรับหิ้ว และให้ผู้สั่งซื้อ (Buyer) เข้ามาร่วมสั่งสินค้าได้แบบเรียลไทม์ ผ่านหน้าระบบที่ใช้งานง่าย รองรับการจัดการรอบ การล็อก/ปิดรอบ และระบบเข้าสู่ระบบ/สมัครสมาชิก พร้อมฐานข้อมูล MySQL และ phpMyAdmin สำหรับจัดการข้อมูล",
+  "date": "2025-10-08",
+  "tags": ["React", "Express", "Docker", "MySQL", "Tailwind", "Fullstack"],
+  "github": "https://github.com/twilught/haul-app",
+  "cover": "/images/projects/haul/1.png"
+  },
+  {
+
+    "slug": "lecturer",
+    "title": "วิทยากร จำเป็น",
+    "summary": "วิทยากร จำเป็น",
+    "details": "งานกิจกรรม Workshop โรงเรียนสวนกุหลาบวิทยาลัย กรุงเทพฯ (พี่สอนน้อง) จัดโดย วิทยาลัยนวัตกรรมดิจิทัลเทคโนโลยี มหาวิทยาลัยรังสิต ",
+    "date": "2025-08",
+    "tags": ["วิทยากร","ผู้บรรยาย"],
+    "demo": "",
+    "cover": "/images/projects/lecturer/536273441_1367702781518453_6335041664084250752_n.jpg", 
+    "imagesDir": "/images/projects/lecturer"
+
+  },
+  {
+    
     "slug": "xtf-viewer-ply-converter",
     "title": "🛰️ XTF Viewer & PLY Converter",
     "summary": "โปรแกรม GUI สำหรับแปลงไฟล์ Sonar .xtf → 3D Point Cloud .ply ใช้งานง่าย แสดงผลได้ทั้ง 2D และ 3D",
@@ -7,8 +31,9 @@
     "date": "2025-08",
     "tags": ["sonar", "3d", "xtf", "ply", "open3d", "gui", "research"],
     "demo": "",
-    "github": "https://github.com/your-repo/xtf-viewer-ply-converter",
-    "cover": "/images/projects/xtf-viewer.jpg"
+    "github": "",
+    "cover": "/images/projects/XTFViewer/123.png",
+    "imagesDir": "/images/projects/XTFViewer"
   },
   {
     "slug": "cisis-2025-sonar-research",

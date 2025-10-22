@@ -7,8 +7,8 @@ import CommandPalette from "@/components/CommandPalette";
 
 /* === Meta === */
 export const metadata: Metadata = {
-  title: "Your Name — Portfolio",
-  description: "Minimal black & white portfolio.",
+  title: "Portfolio",
+  description: "portfolio.",
 };
 
 export const viewport: Viewport = {
