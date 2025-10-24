@@ -210,7 +210,16 @@ export default function Home() {
             <ContactForm />
             <div className="rounded-2xl border border-black/10 dark:border-white/15 p-6 bg-white/50 dark:bg-white/10 backdrop-blur transition-transform duration-200 hover:-translate-y-0.5">
               <h3 className="font-semibold">พร้อมคุยงานเสมอ</h3>
-              <p className="mt-2 opacity-80">แจ้งรายละเอียดโปรเจกต์, ระยะเวลา, และงบประมาณคร่าว ๆ ได้เลย</p>
+              <p className="mt-2 opacity-80">📞 ติดต่อฉัน
+
+ยินดีรับงานฟรีแลนซ์ ร่วมโปรเจกต์ หรือโอกาสทำงานประจำ  
+มาสร้างสิ่งเจ๋ง ๆ ด้วยกัน!
+</p>
+<p>
+<p>📧 อีเมล: kongba5555@gmail.com</p>
+<p>💻 GitHub: github.com/twilight</p>
+<p>🌐 เว็บไซต์: https://my-profile-lilac-six.vercel.app/</p>
+</p>
             </div>
           </div>
         </section>
