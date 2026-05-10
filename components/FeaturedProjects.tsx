@@ -1,7 +1,7 @@
 // components/FeaturedProjects.tsx
 import Link from "next/link";
 import TiltCard from "@/components/TiltCard";
-import { getAdminSupabase, type Work } from "@/lib/supabase";
+import { getSupabase, type Work } from "@/lib/supabase";
 
 function isNew(date?: string | null) {
   if (!date) return false;
@@ -15,7 +15,7 @@ function projectHref(p: Work) {
 }
 
 export default async function FeaturedProjects() {
-  const { data: raw } = await getAdminSupabase()
+  const { data: raw } = await getSupabase()
     .from("works")
     .select("*")
     .order("date", { ascending: false, nullsFirst: false });

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { getAdminSupabase, type Work } from "@/lib/supabase";
+import { getSupabase, type Work } from "@/lib/supabase";
 
 export const dynamic = "force-dynamic";
 
@@ -15,7 +15,7 @@ export default async function ProjectsPage(props: { searchParams?: Promise<Recor
   const q = ((sp.q ?? "") as string).toLowerCase();
   const activeTag = ((sp.tag ?? "") as string).toLowerCase();
 
-  const { data: raw } = await getAdminSupabase()
+  const { data: raw } = await getSupabase()
     .from("works")
     .select("*")
     .order("created_at", { ascending: false });

@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import fs from "node:fs";
 import path from "node:path";
-import { getAdminSupabase, type Work } from "@/lib/supabase";
+import { getSupabase, type Work } from "@/lib/supabase";
 
 export const dynamic = "force-dynamic";
 
@@ -28,7 +28,7 @@ export default async function ProjectDetail({
 }) {
   const { slug } = await params;
 
-  const db = getAdminSupabase();
+  const db = getSupabase();
   let p: Work | null = null;
 
   const bySlug = await db.from("works").select("*").eq("slug", slug).maybeSingle();
