@@ -69,7 +69,7 @@ export default function Home() {
 
       {/* === HERO (mobile-first) === */}
       <section
-        className="mx-auto max-w-[900px] px-4 py-16 sm:py-20 grid md:grid-cols-2 gap-10 items-center"
+        className="mx-auto max-w-[900px] px-4 py-10 sm:py-14 grid md:grid-cols-2 gap-10 items-center"
         aria-labelledby="hero-title"
       >
         {/* รูป: ขึ้นก่อนในจอเล็ก, ย้ายไปขวาเมื่อจอ ≥ md */}
@@ -161,7 +161,7 @@ export default function Home() {
 
       {/* === ABOUT === */}
       <Reveal>
-        <section id="about" className="mx-auto max-w-6xl px-4 pb-6" aria-labelledby="about-title">
+        <section id="about" className="mx-auto max-w-6xl px-4 py-8" aria-labelledby="about-title">
           <h2 id="about-title" className="text-2xl font-semibold">
             About
           </h2>
@@ -202,7 +202,7 @@ export default function Home() {
 
       {/* === CONTACT === */}
       <Reveal>
-        <section id="contact" className="mx-auto max-w-6xl px-4 py-14" aria-labelledby="contact-title">
+        <section id="contact" className="mx-auto max-w-6xl px-4 py-10" aria-labelledby="contact-title">
           <h2 id="contact-title" className="flex items-center gap-2 text-2xl font-semibold mb-4">
             ✉️ Contact
           </h2>
@@ -215,11 +215,11 @@ export default function Home() {
 ยินดีรับงานฟรีแลนซ์ ร่วมโปรเจกต์ หรือโอกาสทำงานประจำ  
 มาสร้างสิ่งเจ๋ง ๆ ด้วยกัน!
 </p>
-<p>
-<p>📧 อีเมล: kongba5555@gmail.com</p>
-<p>💻 GitHub: github.com/twilight</p>
-<p>🌐 เว็บไซต์: https://my-profile-lilac-six.vercel.app/</p>
-</p>
+<div className="mt-2 space-y-1 text-sm opacity-80">
+  <p>📧 อีเมล: kongba5555@gmail.com</p>
+  <p>💻 GitHub: github.com/twilight</p>
+  <p>🌐 เว็บไซต์: https://my-profile-lilac-six.vercel.app/</p>
+</div>
             </div>
           </div>
         </section>

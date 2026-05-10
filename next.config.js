@@ -3,7 +3,7 @@ const nextConfig = {
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com" },
-      { protocol: "https", hostname: "images.unsplash.com" } // เพิ่มโดเมนรูปอื่น ๆ ได้
+      { protocol: "https", hostname: "oxhajdlvumekiphwcczf.supabase.co" },
     ],
   },
   async redirects() {

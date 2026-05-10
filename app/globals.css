@@ -140,3 +140,9 @@ body {
 .gradient-mask{
   mask-image: linear-gradient(180deg, transparent 0%, black 10%, black 90%, transparent 100%);
 }
+
+/* admin input */
+.input {
+  @apply w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-white outline-none
+         focus:border-white/30 transition placeholder:text-white/30;
+}

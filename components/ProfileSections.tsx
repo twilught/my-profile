@@ -30,7 +30,7 @@ export default function ProfileSections() {
     <MotionConfig reducedMotion="user">
       <section
         aria-labelledby="section-education"
-        className="mx-auto max-w-6xl px-4 py-16 grid gap-10 md:grid-cols-2"
+        className="mx-auto max-w-6xl px-4 py-8 grid gap-6 md:grid-cols-2"
       >
         {/* การศึกษา */}
         <motion.div
@@ -43,10 +43,17 @@ export default function ProfileSections() {
             <GraduationCap className="size-6" aria-hidden="true" />
             การศึกษา
           </h2>
-          <div className="mt-3 pt-3 border-t border-black/10 dark:border-white/15 space-y-1">
-            <p className="font-bold">กำลังศึกษา ปริญญาตรี</p>
-            <p>วิทยาลัยนวัตกรรมดิจิทัลเทคโนโลยี</p>
-            <p>สาขานวัตกรรมดิจิทัล</p>
+          <div className="mt-3 pt-3 border-t border-black/10 dark:border-white/15 space-y-4">
+            <div className="space-y-0.5">
+              <p className="font-bold">ปริญญาตรี</p>
+              <p className="text-sm opacity-80">สาขา นวัตกรรมดิจิทัลและปัญญาประดิษฐ์</p>
+              <p className="text-sm opacity-60">วิทยาลัยนวัตกรรมดิจิทัลเทคโนโลยี มหาวิทยาลัยรังสิต</p>
+            </div>
+            <div className="space-y-0.5">
+              <p className="font-bold">ปริญญาโท <span className="text-xs font-normal opacity-50">(กำลังศึกษา)</span></p>
+              <p className="text-sm opacity-80">สาขา การจัดการความมั่นคงไซเบอร์และเทคโนโลยี</p>
+              <p className="text-sm opacity-60">วิทยาลัยนวัตกรรมดิจิทัลเทคโนโลยี มหาวิทยาลัยรังสิต</p>
+            </div>
           </div>
         </motion.div>
 

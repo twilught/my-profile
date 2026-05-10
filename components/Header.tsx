@@ -32,6 +32,12 @@ export default function Header() {
           <Link className="hover:opacity-80 transition" href="/projects">Projects</Link>
           <Link className="hover:opacity-80 transition" href="/about">About</Link>
           <Link className="hover:opacity-80 transition" href="/#contact">Contact</Link>
+          <Link
+            className="text-xs text-black/40 dark:text-white/30 hover:text-black/70 dark:hover:text-white/60 transition"
+            href="/admin/login"
+          >
+            Login
+          </Link>
           <div className="w-px h-5 bg-black/10 dark:bg-white/15 mx-1" />
           <ThemeToggle />
         </nav>

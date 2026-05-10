@@ -1,48 +1,39 @@
-// app/projects/page.tsx
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import raw from "@/data/projects.json";
+import { getAdminSupabase, type Work } from "@/lib/supabase";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Projects — Athip Buasamlee",
   description: "รวมผลงาน โปรเจกต์ และสิ่งที่ได้ทำ",
 };
 
-type Project = {
-  slug: string;
-  title: string;
-  summary?: string;
-  details?: string;
-  date?: string;
-  tags?: string[];
-  demo?: string;
-  github?: string;
-  cover?: string;
-};
+export default async function ProjectsPage(props: { searchParams?: Promise<Record<string, string>> }) {
+  const sp = props.searchParams ? await props.searchParams : {};
+  const q = ((sp.q ?? "") as string).toLowerCase();
+  const activeTag = ((sp.tag ?? "") as string).toLowerCase();
 
-export default async function ProjectsPage(props: { searchParams?: any }) {
-  // รองรับทั้งกรณีเป็น object ตรง ๆ หรือเป็น Promise (บาง env ของ Next 15)
-  const sp =
-    props.searchParams && typeof props.searchParams.then === "function"
-      ? await props.searchParams
-      : (props.searchParams ?? {});
+  const { data: raw } = await getAdminSupabase()
+    .from("works")
+    .select("*")
+    .order("created_at", { ascending: false });
 
-  const q = (sp.q ?? "").toLowerCase();
-  const activeTag = (sp.tag ?? "").toLowerCase();
-
-  const list = (raw as Project[])
-    .map((p) => ({ ...p, _dateNum: p.date ? new Date(p.date).getTime() : 0 }))
-    .sort((a, b) => b._dateNum - a._dateNum);
+  const list = (raw ?? []) as Work[];
 
   const filtered = list.filter((p) => {
-    const hay = (p.title + " " + (p.summary ?? "") + " " + (p.tags ?? []).join(" ")).toLowerCase();
+    const hay = (p.title + " " + (p.description ?? "") + " " + (p.tags ?? []).join(" ")).toLowerCase();
     const okQ = q ? hay.includes(q) : true;
     const okTag = activeTag ? (p.tags ?? []).some((t) => t.toLowerCase() === activeTag) : true;
     return okQ && okTag;
   });
 
   const allTags = Array.from(new Set(list.flatMap((p) => p.tags ?? []))).sort();
+
+  function href(p: Work) {
+    return p.slug ? `/projects/${p.slug}` : `/projects/${p.id}`;
+  }
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-12">
@@ -51,7 +42,7 @@ export default async function ProjectsPage(props: { searchParams?: any }) {
           <h1 className="text-3xl font-extrabold">Projects</h1>
           <p className="opacity-70 mt-1">
             {filtered.length} รายการ
-            {q ? ` • ค้นหา: “${q}”` : ""}
+            {q ? ` • ค้นหา: "${q}"` : ""}
             {activeTag ? ` • แท็ก: ${activeTag}` : ""}
           </p>
         </div>
@@ -104,18 +95,17 @@ export default async function ProjectsPage(props: { searchParams?: any }) {
       <section className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {filtered.map((p) => (
           <article
-            key={p.slug}
+            key={p.id}
             className="group overflow-hidden rounded-3xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/5 hover:shadow-lg hover:-translate-y-1 transition"
           >
-            <Link href={`/projects/${p.slug}`} className="block">
-              {p.cover ? (
-                <div className="relative h-40">
-                  <Image
-                    src={p.cover}
+            <Link href={href(p)} className="block">
+              {p.image_url ? (
+                <div className="relative h-40 overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={p.image_url}
                     alt={p.title}
-                    fill
-                    className="object-cover transition group-hover:scale-[1.02]"
-                    sizes="(max-width: 1024px) 50vw, 33vw"
+                    className="w-full h-full object-cover transition group-hover:scale-[1.02]"
                   />
                 </div>
               ) : (
@@ -125,11 +115,11 @@ export default async function ProjectsPage(props: { searchParams?: any }) {
 
             <div className="p-5">
               <h2 className="font-semibold text-lg">
-                <Link href={`/projects/${p.slug}`} className="hover:underline">
+                <Link href={href(p)} className="hover:underline">
                   {p.title}
                 </Link>
               </h2>
-              {p.summary && <p className="mt-2 text-sm opacity-80">{p.summary}</p>}
+              {p.description && <p className="mt-2 text-sm opacity-80 line-clamp-2">{p.description}</p>}
               <div className="mt-3 flex flex-wrap gap-2">
                 {(p.tags ?? []).map((t) => (
                   <span key={t} className="px-2.5 py-1 rounded-full border text-xs border-black/15 dark:border-white/20">
@@ -141,7 +131,7 @@ export default async function ProjectsPage(props: { searchParams?: any }) {
 
               <div className="mt-4 flex items-center gap-2">
                 <Link
-                  href={`/projects/${p.slug}`}
+                  href={href(p)}
                   className="inline-flex items-center justify-center rounded-xl border px-3 py-2 text-sm border-black/15 dark:border-white/20 hover:-translate-y-[1px] transition"
                 >
                   รายละเอียด →

@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import CommandPalette from "@/components/CommandPalette";
-
+import NavBar from "@/components/NavBar";
 
 /* === Meta === */
 export const metadata: Metadata = {
@@ -17,22 +17,6 @@ export const viewport: Viewport = {
     { media: "(prefers-color-scheme: dark)", color: "#000000" },
   ],
 };
-
-/* === Simple glass NavBar (ภายในไฟล์ ลด dependency) === */
-function NavBar() {
-  return (
-    <header className="sticky top-0 z-50 bg-white/60 dark:bg-neutral-950/60 backdrop-blur-xl border-b border-black/10 dark:border-white/10">
-      <div className="mx-auto max-w-7xl px-6 h-14 flex items-center justify-between">
-        <a href="/" className="font-extrabold tracking-tight">ATHIP</a>
-        <nav className="hidden md:flex items-center gap-5 text-sm">
-          <a className="opacity-80 hover:opacity-100 transition" href="/projects">Projects</a>
-          <a className="opacity-80 hover:opacity-100 transition" href="/#about">About</a>
-          <a className="opacity-80 hover:opacity-100 transition" href="/#contact">Contact</a>
-        </nav>
-      </div>
-    </header>
-  );
-}
 
 /* === (ถ้ามี) ตัวเลือก: Progress/BackToTop/Footer === */
 // import ScrollProgress from "@/components/ScrollProgress";
