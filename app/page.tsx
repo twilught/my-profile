@@ -11,6 +11,8 @@ import GradientDivider from "@/components/GradientDivider";
 import profileImg from "@/public/images/profile/IMG_0704.png";
 import FeaturedProjects from "@/components/FeaturedProjects";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Athip Buasamlee — Portfolio",
   description:
