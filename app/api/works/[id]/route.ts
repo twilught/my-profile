@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getAdminSupabase } from "@/lib/supabase";
-import { extractStoragePath } from "@/app/api/upload/route";
+import { extractStoragePath } from "@/lib/storage";
 
 const BUCKET = "project-images";
 

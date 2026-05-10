@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getAdminSupabase } from "@/lib/supabase";
+import { extractStoragePath } from "@/lib/storage";
 
 const BUCKET = "project-images";
 
@@ -45,16 +46,3 @@ export async function DELETE(req: NextRequest) {
   return NextResponse.json({ ok: true });
 }
 
-/** แปลง public URL → storage path เช่น "slug/filename.jpg" */
-export function extractStoragePath(publicUrl: string): string | null {
-  try {
-    const url = new URL(publicUrl);
-    // /storage/v1/object/public/project-images/slug/file.jpg
-    const marker = `/object/public/${BUCKET}/`;
-    const idx = url.pathname.indexOf(marker);
-    if (idx === -1) return null;
-    return url.pathname.slice(idx + marker.length);
-  } catch {
-    return null;
-  }
-}
